@@ -1,0 +1,53 @@
+name: Sign CLA for Individual Contributor
+on:
+  workflow_dispatch:
+    inputs:
+        cla:
+          description: CLA
+          type: choice
+          options:
+            - https://docs.opendp.org/stable/_static/opendp-cla-individual-1.0.0.pdf
+          required: true
+        name:
+          description: Your Name
+          type: string
+          required: true
+        attestation:
+          description: I AGREE to the above CLA
+          type: boolean
+          required: true 
+
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+#           cache: pip
+
+      - name: Record signature
+        run: |
+          python tools/cla_tool.py sign-ind \
+            -g "${{ github.actor }}" \
+            -u "${{ github.event.inputs.cla }}" \
+            -n "${{ github.event.inputs.name }}" \
+            -a "${{ github.event.inputs.attestation == 'true' && 'I AGREE' || 'I DO NOT AGREE' }}"
+
+      - name: Update cla-bot config
+        run: |
+          python tools/cla_tool.py gen-conf
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: sign-individual/${{ github.actor }}
+          delete-branch: true
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          commit-message: Sign CLA for individual contributor @${{ github.actor }}
+          title: Sign CLA for individual contributor @${{ github.actor }}
