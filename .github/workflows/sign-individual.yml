@@ -6,7 +6,7 @@ on:
           description: CLA
           type: choice
           options:
-            - https://docs.opendp.org/stable/_static/opendp-cla-individual-1.0.0.pdf
+            - https://docs.opendp.org/en/stable/_static/opendp-cla-individual-1.0.0.pdf
           required: true
         name:
           description: Your Name
