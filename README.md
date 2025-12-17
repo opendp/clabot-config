@@ -1,6 +1,6 @@
 # Configuration for the OpenDP CLA management bot
 
-The OpenDP Project requires a [Contributor License Agreement](https://docs.opendp.org/en/stable/developer/cla.html) from all contributors.
+The OpenDP Project requires a [Contributor License Agreement](https://docs.opendp.org/en/stable/contributing/cla.html) from all contributors.
 We use the GitHub Application [cla-bot](https://colineberhardt.github.io/cla-bot) to manage the checking of CLAs and tagging of pull requests.
 This repository contains the configuration files for `cla-bot`, as well as some utilities to simplify administration.
 
