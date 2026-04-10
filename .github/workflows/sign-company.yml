@@ -1,4 +1,5 @@
-name: Sign CLA for Company Contributor
+name: Company Contributor (No "Run workflow" button? Email username to contact@opendp.org.)
+run-name: Sign CLA for Company Contributor
 on:
   workflow_dispatch:
     inputs:
