@@ -15,13 +15,10 @@ This way, contributors that sign the CLA in the scope of one repo will be verifi
 
 ### Enabling CLA checking for a repo
 
-To enable `cla-bot` functionality on a repo, these are the steps:
+To enable `cla-bot` functionality on a new repo:
 
-1. Install the `cla-bot` app for the repo.
-   1. Go to [the `cla-bot` GitHub App page](https://github.com/apps/cla-bot).
-   2. Click "Configure".
-   3. Follow the instructions to enable the app **for the target repo only**.
-2. Copy the file [`.clabot`](.clabot) from here to the root of the other repo.
+1. In the [cla-bot configuration](https://github.com/organizations/opendp/settings/installations/123645520), add the new repo to the list.
+1. Copy the file [`.clabot`](.clabot) from here to the root of the other repo: `wget https://raw.githubusercontent.com/opendp/clabot-config/refs/heads/main/.clabot`
 
 ### Files in this repo
 
