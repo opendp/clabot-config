@@ -4,17 +4,3 @@
 philip_durbin # "pdurbin" is in contributors.json.
 raman_prasad # "raprasad" is in contributors.json. 
 ethan24 # "ecowan" is in contributors.json
-1821 aramasethu
-1214 ethan24
- 767 PaulineMauryL
- 713 damienbfs
- 379 abigail-gentle
- 156 matchaginseng
- 142 maxinempark
- 140 orespo
- 118 silviacasac
-  80 chle
-  27 shlomihod
-  24 abuahchu
-   9 roykoand
-   5 fefealzueta
