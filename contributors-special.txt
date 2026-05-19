@@ -3,4 +3,33 @@
 
 philip_durbin # "pdurbin" is in contributors.json.
 raman_prasad # "raprasad" is in contributors.json. 
-ethan24 # "ecowan" is in contributors.json
+ethan24 # "ecowan" is in contributors.json.
+damienbfs # "TedTed" is in contributors.json.
+
+# User w/o CLA: lines
+#
+# aramasethu: 1821
+#   No email for Aishwarya Ramasethu.
+# paulinemauryl: 767
+#   No email for Pauline Maury.
+# abigail-gentle: 380
+#   No response from Abigail Gentle.
+# matchaginseng: 156
+#   No email for Vicki Xu.
+# maxinempark: 142
+#   No response from Maxine Park.
+# orespo: 140
+#   No email for Oren ___.
+# silviacasac: 118
+#   No email for Silvia ___.
+# chle: 80
+#   CLA signed by university representative: Peter Sestoft, Martin Zachariasen, or Jens Christian Godskesen depending on the date.
+#   Review old emails?
+# shlomihod: 27
+#   No response from Shlomi Hod.
+# abuahchu: 24
+#   No response from Chike Abuah.
+# roykoand: 9
+#   No email for Andrii Roiko.
+# fefealzueta: 5
+#   No email for ___.
