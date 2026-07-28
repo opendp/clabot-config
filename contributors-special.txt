@@ -16,8 +16,6 @@ damienbfs # "TedTed" is in contributors.json.
 #   No response from Abigail Gentle.
 # matchaginseng: 156
 #   No email for Vicki Xu.
-# maxinempark: 142
-#   No response from Maxine Park.
 # orespo: 140
 #   No email for Oren ___.
 # silviacasac: 118
@@ -25,8 +23,6 @@ damienbfs # "TedTed" is in contributors.json.
 # chle: 80
 #   CLA signed by university representative: Peter Sestoft, Martin Zachariasen, or Jens Christian Godskesen depending on the date.
 #   Review old emails?
-# shlomihod: 27
-#   No response from Shlomi Hod.
 # abuahchu: 24
 #   No response from Chike Abuah.
 # roykoand: 9
