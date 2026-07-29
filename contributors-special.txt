@@ -8,18 +8,12 @@ damienbfs # "TedTed" is in contributors.json.
 
 # User w/o CLA: lines
 #
-# aramasethu: 1821
-#   No email for Aishwarya Ramasethu.
-# paulinemauryl: 767
-#   No email for Pauline Maury.
 # abigail-gentle: 380
 #   No response from Abigail Gentle.
 # matchaginseng: 156
 #   No email for Vicki Xu.
 # orespo: 140
 #   No email for Oren ___.
-# silviacasac: 118
-#   No email for Silvia ___.
 # chle: 80
 #   CLA signed by university representative: Peter Sestoft, Martin Zachariasen, or Jens Christian Godskesen depending on the date.
 #   Review old emails?
