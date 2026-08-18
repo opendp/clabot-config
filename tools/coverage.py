@@ -4,14 +4,22 @@ from os import chdir
 import re
 from collections import Counter
 from json import loads
+from sys import exit
 
 
 def get_blame(blame_path):
-    chdir("/tmp")
-    path = Path("opendp")
-    if not path.exists():
-        check_output("git clone https://github.com/opendp/opendp.git".split(" "))
-    chdir("opendp")
+    repo_cache_path = Path(__file__).parent / '.repo-cache'
+    repo_cache_path.mkdir(exist_ok=True)
+    chdir(repo_cache_path)
+
+    repo = "opendp"
+    repo_path = Path(repo)
+    if not repo_path.exists():
+        check_output(f"git clone https://github.com/opendp/{repo}.git".split(" "))
+    chdir(repo_path)
+    check_output("git checkout main".split(" "))
+    check_output("git pull".split(" "))
+
     blames = []
     for root, dirs, files in Path(".").walk():
         for file in files:
@@ -19,21 +27,19 @@ def get_blame(blame_path):
             if str(file_path).startswith('.git/'):
                 # Fresh checkout, so shouldn't have any generated files to ignore.
                 continue
-            print(file_path)
             if file_path.is_dir():
                 continue
+            print(f'scan {file_path}')
             try:
                 blame = check_output(f"git blame --show-email {file_path}".split(" "), text=True)
             except UnicodeDecodeError:
+                print(f'\tdecoding error: skip {file_path}')
                 continue
             blames += [f"{file_path}: {line}" for line in blame.splitlines()]
-    chdir("..")
     blame_path.write_text("\n".join(blames))
 
 
-def get_counts():
-    chdir("/tmp")
-    blame_path = Path("opendp.blame")
+def get_counts(blame_path):
     if not blame_path.exists():
         get_blame(blame_path)
     blame = blame_path.read_text().splitlines()
@@ -61,15 +67,27 @@ def get_special():
     return contributors
 
 def main():
-    counts = get_counts()
+    data_cache_path = Path(__file__).parent / '.data-cache'
+    data_cache_path.mkdir(exist_ok=True)
+    blame_path = data_cache_path / 'blame.txt'
+    counts = get_counts(blame_path)
+
     contributors = get_contrib()
-    specials = get_special()
     for c in contributors:
         del counts[c]
+
+    specials = get_special()
     for s in specials:
         del counts[s]
+
+    if not counts:
+        print('All lines covered by CLA: yay!')
+        exit(0)
+
     for (k, v) in counts.most_common():
+        print('Some lines not covered by CLA: boo!')
         print(f"{k}: {v}")
+        exit(1)
 
 if __name__ == '__main__':
     main()
