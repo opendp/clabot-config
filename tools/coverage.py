@@ -7,6 +7,25 @@ from json import loads
 from sys import exit
 
 
+special_file = 'contributors-special-cases.txt'
+
+def rewind_to_clabot_commit():
+    """
+    We assume that after .clabot was added,
+    no commits without CLA signature have been added:
+    We don't miss anything by rewinding.
+
+    After .clabot was added formatting changes could
+    hide contributions in git blame.
+
+    Another approach would be to only look at git log,
+    but that would make it harder to relate to the files touched.
+    """
+    log_line = check_output("git log --oneline -1 .clabot".split(" "), text=True)
+    hash = log_line.split()[0]
+    check_output(f"git checkout {hash}".split(" "))
+
+
 def get_blame(blame_path):
     repo_cache_path = Path(__file__).parent / '.repo-cache'
     repo_cache_path.mkdir(exist_ok=True)
@@ -17,8 +36,7 @@ def get_blame(blame_path):
     if not repo_path.exists():
         check_output(f"git clone https://github.com/opendp/{repo}.git".split(" "))
     chdir(repo_path)
-    check_output("git checkout main".split(" "))
-    check_output("git pull".split(" "))
+    rewind_to_clabot_commit()
 
     blames = []
     for root, dirs, files in Path(".").walk():
@@ -62,8 +80,8 @@ def get_contrib():
 
 
 def get_special():
-    special_txt = (Path(__file__).parent.parent / 'contributors-special.txt').read_text()
-    contributors = [uncomment for line in special_txt.splitlines() if (uncomment := line.split('#')[0].strip())]
+    special_txt = (Path(__file__).parent.parent / special_file).read_text()
+    contributors = [re.sub(r'\s*#.*', '', line) for line in special_txt.splitlines() if line and not line.startswith('#')]
     return contributors
 
 def main():
@@ -80,14 +98,17 @@ def main():
     for s in specials:
         del counts[s]
 
+    subject = 'lines of code in opendb repo when .clabot was added'
+    assertion = f'covered by CLA (or author is listed in {special_file})'
+
     if not counts:
-        print('All lines covered by CLA: yay!')
+        print(f'All {subject} are {assertion}: yay!')
         exit(0)
 
+    print(f'Some {subject} are not {assertion}: boo!')
     for (k, v) in counts.most_common():
-        print('Some lines not covered by CLA: boo!')
         print(f"{k}: {v}")
-        exit(1)
+    exit(1)
 
 if __name__ == '__main__':
     main()
