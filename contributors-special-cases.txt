@@ -1,14 +1,15 @@
 # Special cases where we consider the CLA to be signed,
 # although the username on the commit doesn't match contributors.json.
 
-# Signature in contributors.json is under a different username than the commit:
+# Signature in contributors.json is under a different username than the commits in opendp:
 philip_durbin # "pdurbin"
 raman_prasad # "raprasad"
 ethan24 # "ecowan"
 damienbfs # "TedTed"
 maxinempark # "maxine-park" 
 
-chle # He was not able to sign directly, but we believe his contribution is covered.
+chle
+# He was not able to sign directly, but we believe his contribution is covered.
 # email from Christian Janos Lebeda:
 # 
 # I believe that I already filled out a CLA.
@@ -19,8 +20,24 @@ chle # He was not able to sign directly, but we believe his contribution is cove
 # I cannot verify that I send the agreement, because I no longer have access to my old university email. Please check if you received a signed document from chle@itu.dk.
 
 
-# User w/o CLA: lines
+# Users w/o CLA: lines
+
 # matchaginseng: 179
+# https://github.com/opendp/opendp/pulls?q=is%3Apr+author%3Amatchaginseng
+# Two proofs: They could be deleted, and contrib possibly updated, if we are unable to make contact.
+
 # abuahchu: 24
+# User name doesn't match git commits:
+# https://github.com/opendp/opendp/pulls?q=is%3Apr+author%3Achikeabuah
+# Docs and one rename.
+
 # roykoand: 9
+# https://github.com/opendp/opendp/pulls?q=is%3Apr+author%3Aroykoand
+# One PR:
+# https://github.com/opendp/opendp/pull/2161
+# Typo fixes: TODO: Rewrite text.
+
 # fefealzueta: 5
+# User name doesn't match git commits:
+# https://github.com/opendp/opendp/pulls?q=is%3Apr+author%3Adevfernandoa
+# Shell syntax fix.

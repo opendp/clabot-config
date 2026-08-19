@@ -108,6 +108,7 @@ def main():
     print(f'Some {subject} are not {assertion}: boo!')
     for (k, v) in counts.most_common():
         print(f"{k}: {v}")
+        print(f"https://github.com/opendp/opendp/pulls?q=is%3Apr+author%3A{k}")
     exit(1)
 
 if __name__ == '__main__':
