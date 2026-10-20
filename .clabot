@@ -1,4 +1,4 @@
 {
     "contributors": "https://api.github.com/repos/opendp/clabot-config/contents/contributors.json",
-    "message": "Thank you for your PR! We don’t have a Contributor License Agreement on file for {{usersWithoutCLA}}. Please [request an invitation](https://github.com/opendp/clabot-config/issues/new?template=become-contributor.md) to become an OpenDP Contributor and then you'll be able sign the CLA."
+    "message": "Thank you for your PR! We don’t have a Contributor License Agreement on file for {{usersWithoutCLA}}. Please [request an invitation](https://github.com/opendp/clabot-config/issues/new?template=become-contributor.md) to become an OpenDP Contributor and then you'll be able sign the CLA. After that, add a comment with '@cla-bot' to re-check the CLA."
 }
